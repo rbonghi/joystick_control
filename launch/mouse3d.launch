@@ -1,0 +1,8 @@
+<launch>
+    <!-- spacenav node -->
+    <node respawn="true" pkg="spacenav_node"
+          type="spacenav_node" name="spacenav" >
+      <remap from="spacenav/joy" to="joy" />
+    </node>
+    <node name="drive_node" pkg="joystick_control" type="joystick_drive_node" />
+</launch>

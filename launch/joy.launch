@@ -1,0 +1,19 @@
+<launch>
+ <!-- Buttons -->
+  <param name="/joy/enable_motors" value="0" type="int"/>
+  <param name="/joy/reset_pose" value="1" type="int"/>
+ <!-- Axes -->
+  <!-- Steering -->
+  <param name="/joy/steering/axis/x" value="3" type="int"/>
+  <param name="/joy/steering/axis/y" value="2" type="int"/>
+  <param name="/joy/steering/scale/x" value="0.1" type="double"/>
+  <param name="/joy/steering/scale/y" value="0.5" type="double"/>
+
+ <!-- joy node -->
+  <node respawn="true" pkg="joy"
+        type="joy_node" name="track_joy" >
+    <param name="dev" type="string" value="/dev/input/js1" />
+    <param name="deadzone" value="0.12" />
+  </node>
+  <node name="drive_node" pkg="joystick_control" type="joystick_drive_node" />
+</launch>

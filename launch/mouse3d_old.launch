@@ -1,0 +1,18 @@
+<launch>
+ <!-- Buttons -->
+  <param name="/joy/enable_motors" value="0" type="int"/>
+  <param name="/joy/reset_pose" value="1" type="int"/>
+ <!-- Axes -->
+  <!-- Steering -->
+  <param name="/joy/steering/axis/x" value="0" type="int"/>
+  <param name="/joy/steering/axis/y" value="5" type="int"/>
+  <param name="/joy/steering/scale/x" value="0.6" type="double"/>
+  <param name="/joy/steering/scale/y" value="2.5" type="double"/>
+
+    <!-- spacenav node -->
+    <node respawn="true" pkg="spacenav_node"
+          type="spacenav_node" name="spacenav" >
+      <remap from="spacenav/joy" to="joy" />
+    </node>
+    <node name="drive_node" pkg="joystick_control" type="joystick_drive_node" />
+</launch>
